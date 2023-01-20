@@ -40,12 +40,19 @@ export const scene6 = () => {
   scene.add(light);
 
   // Mouse wheel scroll event handler
+
+  function rotateScene(movement) {
+    scene.rotation.y += movement;
+  }
+
+  function rotateSphere(movement) {
+    sphere.rotation.y += movement;
+  }
+  const rotationFactor = 0.001;
   document.addEventListener("wheel", function (event) {
-    let movementY = event.deltaY * 0.001;
-    console.log(movementY);
-    scene.rotation.y += movementY;
-    let oppositeMovementY = -movementY;
-    sphere.rotation.y += oppositeMovementY;
+    let movementY = event.deltaY * rotationFactor;
+    rotateScene(movementY);
+    rotateSphere(-movementY);
   });
 
   // Create satellites
@@ -81,7 +88,7 @@ export const scene6 = () => {
     satellite.position.set(
       Math.random() * (1.7 - -1.7) + -1.7,
       Math.random() * (1.2 - -1.2) + -1.2,
-      Math.random() * (3 - 2) + 2
+      Math.random() * (3 - -2) + -2
     );
     scene.add(satellite);
   }
