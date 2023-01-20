@@ -56,8 +56,8 @@ export const scene6 = () => {
     var satelliteColor =
       satelliteColors[Math.floor(Math.random() * satelliteColors.length)];
     var satelliteGeometry = new THREE.IcosahedronGeometry(
-      0.1,
-      Math.floor(Math.random() * 3)
+      Math.random() * (0.2 - 0.05) + 0.05, // size
+      Math.floor(Math.random()) // detail between 0 and 1
     );
     var satelliteMaterial = new THREE.MeshStandardMaterial({
       color: satelliteColor,
@@ -74,7 +74,7 @@ export const scene6 = () => {
     );
 
     // speed of orbit
-    const satelliteSpeeds = [0.05, 0.025, -0.025, -0.05];
+    const satelliteSpeeds = [0.025, -0.025, -0.05];
 
     const pivot = new THREE.Object3D();
     pivot.orbitSpeed =
