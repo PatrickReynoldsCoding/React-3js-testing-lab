@@ -1,6 +1,6 @@
 import * as THREE from "three";
 
-export const createScene = () => {
+export const sceneOne = () => {
   // set up scene, camera, and renderer
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(
