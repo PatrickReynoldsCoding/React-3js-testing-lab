@@ -1,69 +1,65 @@
 import { useState, useEffect } from "react";
 
 import "./App.css";
-// import loadThreeScene from "./functions/loadThreeScene";
+import { createScene } from "./functions/loadThreeScene";
+createScene();
+// import * as THREE from "three";
 
-// useEffect(() => {
-//   loadThreeScene();
-// }, []);
+// // set up scene, camera, and renderer
+// var scene = new THREE.Scene();
+// var camera = new THREE.PerspectiveCamera(
+//   75,
+//   window.innerWidth / window.innerHeight,
+//   0.1,
+//   1000
+// );
+// var renderer = new THREE.WebGLRenderer();
+// renderer.setSize(window.innerWidth, window.innerHeight);
+// document.body.appendChild(renderer.domElement);
 
-import * as THREE from "three";
+// // create abstract objects and add to scene
+// var geometry = new THREE.IcosahedronGeometry(1, 0);
+// var material = new THREE.MeshStandardMaterial({
+//   color: 0xffffff,
+//   flatShading: true,
+// });
+// var mesh = new THREE.Mesh(geometry, material);
+// scene.add(mesh);
 
-// set up scene, camera, and renderer
-var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
-var renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+// var geometry2 = new THREE.OctahedronGeometry(1, 0);
+// var material2 = new THREE.MeshStandardMaterial({
+//   color: 0x00ff00,
+//   flatShading: true,
+// });
+// var mesh2 = new THREE.Mesh(geometry2, material2);
+// mesh2.position.x = 2;
+// scene.add(mesh2);
 
-// create abstract objects and add to scene
-var geometry = new THREE.IcosahedronGeometry(1, 0);
-var material = new THREE.MeshStandardMaterial({
-  color: 0xffffff,
-  flatShading: true,
-});
-var mesh = new THREE.Mesh(geometry, material);
-scene.add(mesh);
+// // create lighting and add to scene
+// var light = new THREE.DirectionalLight(0xffffff, 0.5);
+// light.position.set(1, 1, 1);
+// scene.add(light);
 
-var geometry2 = new THREE.OctahedronGeometry(1, 0);
-var material2 = new THREE.MeshStandardMaterial({
-  color: 0x00ff00,
-  flatShading: true,
-});
-var mesh2 = new THREE.Mesh(geometry2, material2);
-mesh2.position.x = 2;
-scene.add(mesh2);
+// var light2 = new THREE.DirectionalLight(0x00ff00, 0.5);
+// light2.position.set(-1, -1, -1);
+// scene.add(light2);
 
-// create lighting and add to scene
-var light = new THREE.DirectionalLight(0xffffff, 0.5);
-light.position.set(1, 1, 1);
-scene.add(light);
+// camera.position.z = 5;
 
-var light2 = new THREE.DirectionalLight(0x00ff00, 0.5);
-light2.position.set(-1, -1, -1);
-scene.add(light2);
+// // animate objects on mouse scroll
+// document.addEventListener("wheel", function (e) {
+//   mesh.rotation.x += e.deltaY * 0.01;
+//   mesh.rotation.y += e.deltaY * 0.01;
+//   mesh2.rotation.x -= e.deltaY * 0.01;
+//   mesh2.rotation.y -= e.deltaY * 0.01;
+// });
 
-camera.position.z = 5;
-
-// animate objects on mouse scroll
-document.addEventListener("wheel", function (e) {
-  mesh.rotation.x += e.deltaY * 0.01;
-  mesh.rotation.y += e.deltaY * 0.01;
-  mesh2.rotation.x -= e.deltaY * 0.01;
-  mesh2.rotation.y -= e.deltaY * 0.01;
-});
-
-// render scene
-var render = function () {
-  requestAnimationFrame(render);
-  renderer.render(scene, camera);
-};
-render();
+// // render scene
+// var render = function () {
+//   requestAnimationFrame(render);
+//   renderer.render(scene, camera);
+// };
+// render();
 function App() {
   return (
     <div className="App">
