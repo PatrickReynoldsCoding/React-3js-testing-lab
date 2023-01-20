@@ -84,12 +84,13 @@ export const scene6 = () => {
 
   function rotateScene(movement) {
     scene.rotation.y += movement;
+    scene.rotation.x += movement;
   }
 
   function rotateSphere(movement) {
     sphere.rotation.y += movement;
   }
-  const rotationFactor = 0.001;
+  const rotationFactor = 0.0001;
   document.addEventListener("wheel", function (event) {
     let movementY = event.deltaY * rotationFactor;
     console.log(movementY);
