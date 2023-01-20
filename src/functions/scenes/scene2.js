@@ -1,6 +1,9 @@
 import * as THREE from "three";
 
-export const sceneTwo = () => {
+// chatGPTPrompt:
+// write me a three.js scene that is animated by the mouse scroll
+
+export const scene2 = () => {
   // Set up the scene, camera, and renderer
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(
