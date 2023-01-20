@@ -1,5 +1,6 @@
 // Three.js imports
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 // chatGPTPrompt:
 // can you create a new animation in 3js of a cube rotation around position 0,0,0 like a moon orbiting a planet
@@ -34,8 +35,8 @@ export const scene6orbitTest = () => {
   // Render loop
   const render = () => {
     requestAnimationFrame(render);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
+    cube.obj.rotation.x += 0.01;
+    cube.obj.rotation.y += 0.01;
     renderer.render(scene, camera);
   };
   render();

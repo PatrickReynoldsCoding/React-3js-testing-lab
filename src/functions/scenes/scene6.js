@@ -74,7 +74,7 @@ export const scene6 = () => {
     );
     satelliteGroup.add(satellite);
   }
-  scene.add(satelliteGroup);
+  sphere.add(satelliteGroup);
   // Lighting setup
   var light = new THREE.DirectionalLight(0xffffff, 1);
   light.position.set(10, 10, 10);
@@ -100,7 +100,7 @@ export const scene6 = () => {
   // Render loop
   var render = function () {
     requestAnimationFrame(render);
-    satelliteGroup.rotation.y += 0.01;
+    sphere.rotation.y += 0.01;
     renderer.render(scene, camera);
   };
   render();
