@@ -72,9 +72,20 @@ export const scene6 = () => {
       Math.random() * (1.2 - -1.2) + -1.2,
       Math.random() * (3 - -2) + -2
     );
-    satelliteGroup.add(satellite);
+
+    // speed of orbit
+    const satelliteSpeeds = [
+      0.001, 0.025, 0.05, 0.01, -0.001, -0.025, -0.05, -0.01,
+    ];
+
+    const pivot = new THREE.Object3D();
+    pivot.orbitSpeed =
+      satelliteSpeeds[Math.floor(Math.random() * satelliteSpeeds.length)];
+    pivot.add(satellite);
+    satelliteGroup.add(pivot);
   }
   sphere.add(satelliteGroup);
+
   // Lighting setup
   var light = new THREE.DirectionalLight(0xffffff, 1);
   light.position.set(10, 10, 10);
@@ -97,10 +108,14 @@ export const scene6 = () => {
     rotateScene(movementY);
     rotateSphere(-movementY);
   });
+  console.log(satelliteGroup.children);
   // Render loop
   var render = function () {
     requestAnimationFrame(render);
-    sphere.rotation.y += 0.01;
+
+    satelliteGroup.children.forEach((child) => {
+      child.rotation.y += child.orbitSpeed;
+    });
     renderer.render(scene, camera);
   };
   render();
