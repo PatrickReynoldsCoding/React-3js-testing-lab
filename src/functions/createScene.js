@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { sceneOne } from "./scenes/sceneOne";
+import * as myScenes from "./scenes/index.js";
 export const createScene = () => {
-  sceneOne();
+  myScenes.sceneOne();
 };
