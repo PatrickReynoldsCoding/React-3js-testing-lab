@@ -40,7 +40,7 @@ export const scene6 = () => {
 
   // Mouse wheel scroll event handler
   document.addEventListener("wheel", function (event) {
-    sphere.rotation.x += event.deltaY * 0.001;
+    scene.rotation.x += event.deltaY * 0.001;
   });
 
   // Create satellites
@@ -70,6 +70,7 @@ export const scene6 = () => {
     });
     // create satellite
     var satellite = new THREE.Mesh(satelliteGeometry, satelliteMaterial);
+
     // var numFaces = satelliteGeometry.faces.length;
     // satellite.name = satelliteColor + " satellite with " + numFaces + " faces";
     satellite.position.set(
