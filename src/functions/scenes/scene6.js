@@ -74,9 +74,7 @@ export const scene6 = () => {
     );
 
     // speed of orbit
-    const satelliteSpeeds = [
-      0.001, 0.025, 0.05, 0.01, -0.001, -0.025, -0.05, -0.01,
-    ];
+    const satelliteSpeeds = [0.05, 0.025, -0.025, -0.05];
 
     const pivot = new THREE.Object3D();
     pivot.orbitSpeed =
@@ -99,7 +97,7 @@ export const scene6 = () => {
   }
 
   function rotateSphere(movement) {
-    sphere.rotation.y += movement;
+    satelliteGroup.rotation.y += movement;
   }
   const rotationFactor = 0.0001;
   document.addEventListener("wheel", function (event) {
