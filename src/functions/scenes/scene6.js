@@ -34,28 +34,10 @@ export const scene6 = () => {
   sphere.name = "sphere";
   scene.add(sphere);
 
-  // Lighting setup
-  var light = new THREE.DirectionalLight(0xffffff, 1);
-  light.position.set(10, 10, 10);
-  scene.add(light);
-
-  // Mouse wheel scroll event handler
-
-  function rotateScene(movement) {
-    scene.rotation.y += movement;
-  }
-
-  function rotateSphere(movement) {
-    sphere.rotation.y += movement;
-  }
-  const rotationFactor = 0.001;
-  document.addEventListener("wheel", function (event) {
-    let movementY = event.deltaY * rotationFactor;
-    rotateScene(movementY);
-    rotateSphere(-movementY);
-  });
-
   // Create satellites
+  // container for all satellites to handle individual rotation
+  const satelliteGroup = new THREE.Object3D();
+  satelliteGroup.name = "satelliteGroup";
   // Number of satellites in this render
   var numSatellites = Math.floor(Math.random() * 19) + 12; // between 12 and 30
   var satelliteColors = ["#FDB813", "#6A5ACD", "#7FFFD4", "#F4A460", "#ADD8E6"];
@@ -90,11 +72,34 @@ export const scene6 = () => {
       Math.random() * (1.2 - -1.2) + -1.2,
       Math.random() * (3 - -2) + -2
     );
-    scene.add(satellite);
+    satelliteGroup.add(satellite);
   }
+  scene.add(satelliteGroup);
+  // Lighting setup
+  var light = new THREE.DirectionalLight(0xffffff, 1);
+  light.position.set(10, 10, 10);
+  scene.add(light);
+
+  // Mouse wheel scroll event handler
+
+  function rotateScene(movement) {
+    scene.rotation.y += movement;
+  }
+
+  function rotateSphere(movement) {
+    sphere.rotation.y += movement;
+  }
+  const rotationFactor = 0.001;
+  document.addEventListener("wheel", function (event) {
+    let movementY = event.deltaY * rotationFactor;
+    console.log(movementY);
+    rotateScene(movementY);
+    rotateSphere(-movementY);
+  });
   // Render loop
   var render = function () {
     requestAnimationFrame(render);
+    satelliteGroup.rotation.y += 0.01;
     renderer.render(scene, camera);
   };
   render();

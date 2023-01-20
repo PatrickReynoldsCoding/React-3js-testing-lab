@@ -5,3 +5,4 @@ export * from "./scene4";
 export * from "./scene5";
 export * from "./scene5_1";
 export * from "./scene6";
+export * from "./scene6orbitTest";
