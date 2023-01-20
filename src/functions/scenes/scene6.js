@@ -31,6 +31,7 @@ export const scene6 = () => {
   });
   var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
   sphere.position.set(0, 0, 0);
+  sphere.name = "sphere";
   scene.add(sphere);
 
   // Lighting setup
@@ -40,7 +41,11 @@ export const scene6 = () => {
 
   // Mouse wheel scroll event handler
   document.addEventListener("wheel", function (event) {
-    scene.rotation.x += event.deltaY * 0.001;
+    let movementY = event.deltaY * 0.001;
+    console.log(movementY);
+    scene.rotation.y += movementY;
+    let oppositeMovementY = -movementY;
+    sphere.rotation.y += oppositeMovementY;
   });
 
   // Create satellites
