@@ -1,10 +1,6 @@
 // Three.js imports
 import * as THREE from "three";
 
-// chatGPTPrompt:
-// Initial: write me a three.js script that shows the camera rotating around a white sphere when you scroll the mouse wheel. it should have a dark blue background and the sphere should have texture. add lighting from an angle.
-// Create satellites: lets think of our sphere as a planet. Now lets add some code that adds some satellites around our planet. These satellites should be different pastel colours and different 3d polyhedron with different  number faces between 8 and 20. add between 12 and 30 and name each one baced on the color and number of faces.
-
 export const scene6 = () => {
   // Three.js scene setup
   let scene = new THREE.Scene();
