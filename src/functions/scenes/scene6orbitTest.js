@@ -2,10 +2,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
-// chatGPTPrompt:
-// Initial prompt: can you create a new animation in 3js of a cube rotation around position 0,0,0 like a moon orbiting a planet
-// 2nd prompt: i have some code where a cube rotates. Instead i want the cube to rotate avound a pivot point at 0,0,0. the cube should start at 1,1,1.
-
 export const scene6orbitTest = () => {
   // Scene setup
   const scene = new THREE.Scene();

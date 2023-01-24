@@ -7,11 +7,11 @@ import * as THREE from "three";
 
 export const scene6 = () => {
   // Three.js scene setup
-  var scene = new THREE.Scene();
+  let scene = new THREE.Scene();
   scene.background = new THREE.Color(0x000033);
 
   // Camera setup
-  var camera = new THREE.PerspectiveCamera(
+  let camera = new THREE.PerspectiveCamera(
     75,
     window.innerWidth / window.innerHeight,
     0.1,
@@ -20,16 +20,16 @@ export const scene6 = () => {
   camera.position.z = 5;
 
   // Render setup
-  var renderer = new THREE.WebGLRenderer();
+  let renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 
   // Sphere setup
-  var sphereGeometry = new THREE.IcosahedronGeometry(1, 4);
-  var sphereMaterial = new THREE.MeshLambertMaterial({
+  let sphereGeometry = new THREE.IcosahedronGeometry(1, 4);
+  let sphereMaterial = new THREE.MeshLambertMaterial({
     map: new THREE.TextureLoader().load("textures/sphere-texture.png"),
   });
-  var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+  let sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
   sphere.position.set(0, 0, 0);
   sphere.name = "sphere";
   scene.add(sphere);
@@ -39,11 +39,11 @@ export const scene6 = () => {
   const satelliteGroup = new THREE.Object3D();
   satelliteGroup.name = "satelliteGroup";
   // Number of satellites in this render
-  var numSatellites = Math.floor(Math.random() * 19) + 12; // between 12 and 30
-  var satelliteColors = ["#FDB813", "#6A5ACD", "#7FFFD4", "#F4A460", "#ADD8E6"];
+  let numSatellites = Math.floor(Math.random() * 19) + 12; // between 12 and 30
+  let satelliteColors = ["#FDB813", "#6A5ACD", "#7FFFD4", "#F4A460", "#ADD8E6"];
   // create random number of shapes
-  var satelliteGeometries = [];
-  for (var i = 1; i <= numSatellites; i++) {
+  let satelliteGeometries = [];
+  for (let i = 1; i <= numSatellites; i++) {
     satelliteGeometries.push(
       new THREE.IcosahedronGeometry(
         Math.random() * (0.1 - -0.05) + -0.05,
@@ -51,21 +51,21 @@ export const scene6 = () => {
       )
     );
   }
-  for (var i = 0; i < numSatellites; i++) {
+  for (let i = 0; i < numSatellites; i++) {
     // Pick random colour and geometry
-    var satelliteColor =
+    let satelliteColor =
       satelliteColors[Math.floor(Math.random() * satelliteColors.length)];
-    var satelliteGeometry = new THREE.IcosahedronGeometry(
+    let satelliteGeometry = new THREE.IcosahedronGeometry(
       Math.random() * (0.2 - 0.05) + 0.05, // size
       Math.floor(Math.random()) // detail between 0 and 1
     );
-    var satelliteMaterial = new THREE.MeshStandardMaterial({
+    let satelliteMaterial = new THREE.MeshStandardMaterial({
       color: satelliteColor,
     });
     // create satellite
-    var satellite = new THREE.Mesh(satelliteGeometry, satelliteMaterial);
+    let satellite = new THREE.Mesh(satelliteGeometry, satelliteMaterial);
 
-    // var numFaces = satelliteGeometry.faces.length;
+    // let numFaces = satelliteGeometry.faces.length;
     // satellite.name = satelliteColor + " satellite with " + numFaces + " faces";
     satellite.position.set(
       Math.random() * (1.7 - -1.7) + -1.7,
@@ -85,7 +85,7 @@ export const scene6 = () => {
   sphere.add(satelliteGroup);
 
   // Lighting setup
-  var light = new THREE.DirectionalLight(0xffffff, 1);
+  let light = new THREE.DirectionalLight(0xffffff, 1);
   light.position.set(10, 10, 10);
   scene.add(light);
 
@@ -108,7 +108,7 @@ export const scene6 = () => {
   });
   console.log(satelliteGroup.children);
   // Render loop
-  var render = function () {
+  let render = function () {
     requestAnimationFrame(render);
 
     satelliteGroup.children.forEach((child) => {
