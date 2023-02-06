@@ -6,3 +6,6 @@ export * from "./scene5";
 export * from "./scene5_1";
 export * from "./scene6";
 export * from "./scene6orbitTest";
+export * from "./scene6wSat";
+export * from "./scene7";
+export * from "./scene8";
